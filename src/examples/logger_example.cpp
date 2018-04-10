@@ -7,9 +7,9 @@
 
 #include <memory>
 
-#include "logging/logger.h"
+#include "logging/logger.hpp"
 
-using namespace acel;
+using namespace librav;
 
 int main(int argc, char* argv[])
 {

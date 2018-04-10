@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.11)
-project(acel-examples)
+project(librav-examples)
 
 ## Include directories
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
@@ -23,6 +23,7 @@ add_executable(lcm_publisher_cpp lcm_publisher.cpp)
 target_link_libraries(lcm_publisher_cpp ${LCM_LIBRARIES})
 
 add_executable(logger_example logger_example.cpp)
-target_link_libraries(logger_example utility)
+target_link_libraries(logger_example utilities)
 
 add_executable(stopwatch_example stopwatch_example.cpp)
+target_link_libraries(stopwatch_example utilities)

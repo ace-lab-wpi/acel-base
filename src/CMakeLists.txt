@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.11)
-project(acel-base)
+project(librav-base)
 
 # cmake module path
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/modules")
@@ -29,10 +29,18 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib)
 set(ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
-## Config common include directories
-include_directories(${CMAKE_SOURCE_DIR})
-include_directories(${CMAKE_SOURCE_DIR}/utility/)
+## Optionally built modules: on/off
+set(ENABLE_LOGGING on)
+set(BUILD_TESTS off)
+
+if(ENABLE_LOGGING)
+	message( "-- Enable logging with spdlog -- Yes" )
+	message( "-- Default log file storage location: librav/data/log" )
+else(ENABLE_LOGGING)
+	message( "-- Enable logging with spdlog -- No" )
+endif(ENABLE_LOGGING)
 
 ## Add other sub source directories
 add_subdirectory(examples)
-add_subdirectory(utility)
+add_subdirectory(utilities)
+add_subdirectory(libraries)
